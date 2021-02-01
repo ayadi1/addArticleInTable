@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="" id="atricle" placeholder="article" />
+      <input type="text" id="prix" placeholder="prix $" />
+      <input type="button" id="button" value="add" />
+    </form>
+    <table id="table">
+      <tr>
+        <th>article</th>
+        <th>prix</th>
+        <th>M-S</th>
+      </tr>
+    </table>
+
+    <!-- <script>
+      var td1,
+        td2,
+        tr,
+        article,
+        articleText,
+        table,
+        BSuprime,
+        BModufer,
+        td3,
+        inputText,
+        inputPrix;
+      // get element by id
+
+      table = document.getElementById("table");
+      var x = document.getElementById("button");
+      x.addEventListener("click", f1);
+      function f1() {
+        var row = document.createElement("tr");
+        table.appendChild(row);
+        var text1 = document.getElementById("atricle").value;
+        var text2 = document.getElementById("prix").value;
+        var col1 = document.createElement("td");
+        var col2 = document.createElement("td");
+        var col3 = document.createElement("td");
+        var col = document.createElement("td");
+
+        for (var i = 0; i < 3; i++) {
+          if (i == 0) {
+            col1.appendChild(document.createTextNode(text1));
+            col = col1;
+          } else if (i == 1) {
+            // col.appendChild(document.createTextNode(text2));
+            if (text2 < 1000) {
+              col2.appendChild(document.createTextNode(text2));
+              col2.style.color = "red";
+              col = col2;
+            } else {
+              col2.appendChild(document.createTextNode(text2));
+              col2.style.color = "blue";
+              col = col2;
+            }
+          } else {
+            var button1 = document.createElement("input");
+            var button2 = document.createElement("input");
+            button1.setAttribute("type", "button");
+            button2.setAttribute("type", "button");
+            button1.setAttribute("value", "modifair");
+            button2.setAttribute("value", "supr");
+            col3.appendChild(button1);
+            col3.appendChild(button2);
+            col = col3;
+          }
+          row.appendChild(col);
+        }
+        var valid = document.createElement("input");
+        valid.setAttribute("type", "button");
+        valid.setAttribute("value", "valid");
+        button1.addEventListener("click", function () {
+          var inputText = document.createElement("input");
+          var inputPrix = document.createElement("input");
+
+          inputPrix.setAttribute("type", "text");
+          inputText.setAttribute("type", "text");
+          inputText.setAttribute("value", row.childNodes[0].childNodes[0].nodeValue);
+          inputPrix.setAttribute("value", row.childNodes[1].childNodes[0].nodeValue);
+          console.log(col2.childNodes[0].nodeValue);
+          console.log(row.childNodes[1].childNodes[0].nodeValue)
+          row.childNodes[0].replaceChild(
+            inputText,
+            row.childNodes[0].childNodes[0]
+          );
+          row.childNodes[1].replaceChild(
+            inputPrix,
+            row.childNodes[1].childNodes[0]
+          );
+
+          row.childNodes[2].replaceChild(
+            valid,
+            row.childNodes[2].childNodes[0]
+          );
+          // row.childNodes[2]
+          
+        });
+
+        valid.addEventListener("click", function () {
+          var newArticleName = document.createElement("td");
+          var newArticlePrix = document.createElement("td");
+          var text = document.createTextNode(row.childNodes[0].childNodes[0].value);
+          var Prix = document.createTextNode(row.childNodes[1].childNodes[0].value);
+        
+          if(Prix.nodeValue < 1000){
+            newArticlePrix.style.color = "red";
+          }else if(Prix.nodeValue > 1000){
+            newArticlePrix.style.color = "blue";
+          }else{
+            newArticlePrix.style.color = "black"
+          };
+          newArticlePrix.appendChild(Prix);
+          newArticleName.appendChild(text);
+        
+          //
+          row.replaceChild(newArticleName,row.childNodes[0]);
+
+          //
+
+          // col1.replaceChild(newArticleName,col1.childNodes[0]);
+          row.replaceChild(newArticlePrix,row.childNodes[1]);
+          // console.log(col3.childNodes[0]);
+         
+          //
+
+          row.childNodes[2].replaceChild(button1,row.childNodes[2].childNodes[0]);
+       
+        
+        });
+        button2.addEventListener("click",function(){
+          
+              table.deleteRow(); 
+
+        });
+
+        // BSuprime = document.createElement("input");
+        // BModufer = document.createElement("input");
+        // inputText = document.createElement("input");
+        // inputPrix = document.createElement("input");
+        //  //set setAttribute
+        //  inputText.setAttribute("type","text");
+        // inputPrix.setAttribute("type","text");
+        // tr = document.createElement("tr");
+        // td1 = document.createElement("td");
+        // td2 = document.createElement("td");
+        // td3 = document.createElement("td");
+        // //get element by id
+        // prix = document.getElementById("prix").value;
+        // article = document.getElementById("atricle").value;
+        // //create element
+
+        // BSuprime.setAttribute("type","button");
+        // BSuprime.setAttribute("value","Suprime");
+
+        // BModufer.setAttribute("type","button");
+        // BModufer.setAttribute("value","modufer");
+
+        // //create node text
+        // articleText = document.createTextNode(article);
+        // prixText = document.createTextNode(prix);
+        // //appendChild td1
+        // td1.appendChild(articleText);
+        // tr.appendChild(td1);
+        // table.appendChild(tr);
+        // // set color
+        // if (prix < 1000) {
+        //   td2.style.color = "red";
+        // } else if (prix > 1000) {
+        //   td2.style.color = "blue";
+        // } else {
+        //   td2.style.color = "black";
+        // }
+        // //append child for td2
+        // td2.appendChild(prixText);
+        // tr.appendChild(td2);
+        // table.appendChild(tr);
+        // // append childe for button
+        // td3.appendChild(BSuprime);
+        // tr.appendChild(td3);
+        // td3.appendChild(BModufer);
+        // tr.appendChild(td3);
+        // table.appendChild(tr);
+        // //set value
+        // inputText.setAttribute("value",td1.nodeValue);
+        // //
+        // BModufer.addEventListener("click",function(){
+        //     // console.log(tr.childNodes[0].childNodes[0].nodeValue);
+        //     inputPrix.setAttribute("value",tr.childNodes[1].childNodes[0].nodeValue)
+        //     inputText.setAttribute("value",tr.childNodes[0].childNodes[0].nodeValue)
+        //     tr.childNodes[0].replaceChild(inputText,tr.childNodes[0].childNodes[0]);
+        //     tr.childNodes[1].replaceChild(inputPrix,tr.childNodes[1].childNodes[0]);
+
+        //   });
+      }
+      
+    </script> -->
+    <script src="myscripts.js"></script>
+  </body>
+</html>
